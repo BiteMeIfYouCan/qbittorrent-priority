@@ -7,5 +7,5 @@
 
 
 
-![]([https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png](https://github.com/BiteMeIfYouCan/qbittorrent-priority/blob/main/xiaoguo1.png))
-![]([https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png](https://github.com/BiteMeIfYouCan/qbittorrent-priority/blob/main/xiaoguo2.png))
+![演示](https://github.com/BiteMeIfYouCan/qbittorrent-priority/blob/main/xiaoguo1.png))
+![演示](https://github.com/BiteMeIfYouCan/qbittorrent-priority/blob/main/xiaoguo2.png))
