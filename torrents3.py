@@ -7,6 +7,7 @@ QB_HOST = "http://10.233.233.233:2333"  # 替换为你的 qb-webui 地址
 QB_USERNAME = "2333"  # 替换为你的用户名
 QB_PASSWORD = "23333"  # 替换为你的密码
 
+
 # 连接客户端
 client = qbittorrentapi.Client(host=QB_HOST, username=QB_USERNAME, password=QB_PASSWORD)
 try:
@@ -77,9 +78,10 @@ def check_torrent_12():
 
     # 检查前 11 个种子，找到平均速度低于 100kB/s 的进行替换
     for i in range(9):  # 只检查前 9 个
-        if calculate_average_speed(torrents[i].hash) < 100 * 1024:  # 低于 100kB/s
+        target_speed = calculate_average_speed(torrents[i].hash)
+        if target_speed < 100 * 1024 and speed_12 > target_speed:  # 确保 12 号种子速度更快
             print(
-                f"🔄 种子 {torrent_12.name} (速度 {format_speed(speed_12)}) 替换 {torrents[i].name} (速度 {format_speed(calculate_average_speed(torrents[i].hash))})")
+                f"🔄 种子 {torrent_12.name} (速度 {format_speed(speed_12)}) 替换 {torrents[i].name} (速度 {format_speed(target_speed)})")
             client.torrents.increase_priority(torrent_12.hash)
             client.torrents.decrease_priority(torrents[i].hash)
             return
@@ -118,5 +120,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
 
 
